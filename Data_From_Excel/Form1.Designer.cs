@@ -45,13 +45,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataGridEmptyList = new System.Windows.Forms.DataGridView();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.applicationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBoxWprowadzanieDanych.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridEmptyList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,17 +101,16 @@
             // buttonLoad
             // 
             this.buttonLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.buttonLoad.Location = new System.Drawing.Point(657, 38);
+            this.buttonLoad.Location = new System.Drawing.Point(614, 26);
             this.buttonLoad.Name = "buttonLoad";
-            this.buttonLoad.Size = new System.Drawing.Size(104, 26);
+            this.buttonLoad.Size = new System.Drawing.Size(104, 37);
             this.buttonLoad.TabIndex = 10;
             this.buttonLoad.Text = "Wgraj";
             this.buttonLoad.UseVisualStyleBackColor = true;
-            this.buttonLoad.Click += new System.EventHandler(this.buttonLoad_Click);
             // 
             // groupBoxWprowadzanieDanych
             // 
-            this.groupBoxWprowadzanieDanych.BackColor = System.Drawing.Color.Olive;
+            this.groupBoxWprowadzanieDanych.BackColor = System.Drawing.Color.OliveDrab;
             this.groupBoxWprowadzanieDanych.Controls.Add(this.textBoxTelephone);
             this.groupBoxWprowadzanieDanych.Controls.Add(this.textBoxEmail);
             this.groupBoxWprowadzanieDanych.Controls.Add(this.textBoxSurname);
@@ -131,42 +130,41 @@
             // 
             // textBoxTelephone
             // 
-            this.textBoxTelephone.Location = new System.Drawing.Point(154, 208);
+            this.textBoxTelephone.Location = new System.Drawing.Point(230, 208);
             this.textBoxTelephone.Name = "textBoxTelephone";
-            this.textBoxTelephone.Size = new System.Drawing.Size(435, 32);
+            this.textBoxTelephone.Size = new System.Drawing.Size(307, 32);
             this.textBoxTelephone.TabIndex = 12;
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Location = new System.Drawing.Point(154, 156);
+            this.textBoxEmail.Location = new System.Drawing.Point(230, 156);
             this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(435, 32);
+            this.textBoxEmail.Size = new System.Drawing.Size(307, 32);
             this.textBoxEmail.TabIndex = 11;
             // 
             // textBoxSurname
             // 
-            this.textBoxSurname.Location = new System.Drawing.Point(154, 108);
+            this.textBoxSurname.Location = new System.Drawing.Point(230, 108);
             this.textBoxSurname.Name = "textBoxSurname";
-            this.textBoxSurname.Size = new System.Drawing.Size(435, 32);
+            this.textBoxSurname.Size = new System.Drawing.Size(307, 32);
             this.textBoxSurname.TabIndex = 10;
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(154, 56);
+            this.textBoxName.Location = new System.Drawing.Point(230, 56);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(435, 32);
+            this.textBoxName.Size = new System.Drawing.Size(307, 32);
             this.textBoxName.TabIndex = 9;
             // 
             // buttonAdd
             // 
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.buttonAdd.Location = new System.Drawing.Point(651, 259);
+            this.buttonAdd.Location = new System.Drawing.Point(624, 241);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(88, 32);
+            this.buttonAdd.Size = new System.Drawing.Size(88, 39);
             this.buttonAdd.TabIndex = 8;
             this.buttonAdd.Text = "Dodaj rekord";
             this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // label4
             // 
@@ -211,7 +209,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Olive;
-            this.tabPage2.Controls.Add(this.dataGridEmptyList);
+            this.tabPage2.Controls.Add(this.dataGridView1);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -219,14 +217,13 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Szczegóły rekordu";
             // 
-            // dataGridEmptyList
+            // dataGridView1
             // 
-            this.dataGridEmptyList.BackgroundColor = System.Drawing.Color.DarkKhaki;
-            this.dataGridEmptyList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridEmptyList.Location = new System.Drawing.Point(7, 7);
-            this.dataGridEmptyList.Name = "dataGridEmptyList";
-            this.dataGridEmptyList.Size = new System.Drawing.Size(754, 383);
-            this.dataGridEmptyList.TabIndex = 0;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(7, 7);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(754, 383);
+            this.dataGridView1.TabIndex = 0;
             // 
             // applicationBindingSource
             // 
@@ -246,7 +243,7 @@
             this.groupBoxWprowadzanieDanych.ResumeLayout(false);
             this.groupBoxWprowadzanieDanych.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridEmptyList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -270,7 +267,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView dataGridEmptyList;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource applicationBindingSource;
     }
 }
