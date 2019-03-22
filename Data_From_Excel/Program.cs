@@ -16,6 +16,6 @@ namespace Data_From_Excel
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-        }
-    }
-}
+        }//static void Main()
+    }// static class Program
+}//namespace Data_From_Excel

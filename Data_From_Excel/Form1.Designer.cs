@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label13 = new System.Windows.Forms.Label();
@@ -44,12 +45,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataGridEmptyList = new System.Windows.Forms.DataGridView();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.applicationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBoxWprowadzanieDanych.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridEmptyList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.applicationBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -206,7 +209,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Olive;
-            this.tabPage2.Controls.Add(this.dataGridEmptyList);
+            this.tabPage2.Controls.Add(this.dataGridView1);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -214,14 +217,17 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Szczegóły rekordu";
             // 
-            // dataGridEmptyList
+            // dataGridView1
             // 
-            this.dataGridEmptyList.BackgroundColor = System.Drawing.Color.OliveDrab;
-            this.dataGridEmptyList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridEmptyList.Location = new System.Drawing.Point(16, 29);
-            this.dataGridEmptyList.Name = "dataGridEmptyList";
-            this.dataGridEmptyList.Size = new System.Drawing.Size(726, 332);
-            this.dataGridEmptyList.TabIndex = 0;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(7, 7);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(754, 383);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // applicationBindingSource
+            // 
+            this.applicationBindingSource.DataSource = typeof(Microsoft.Office.Interop.Excel._Application);
             // 
             // Form1
             // 
@@ -237,7 +243,8 @@
             this.groupBoxWprowadzanieDanych.ResumeLayout(false);
             this.groupBoxWprowadzanieDanych.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridEmptyList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.applicationBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -260,7 +267,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView dataGridEmptyList;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource applicationBindingSource;
     }
 }
 
