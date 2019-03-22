@@ -89,9 +89,10 @@
             // 
             // txtFileName
             // 
+            this.txtFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txtFileName.Location = new System.Drawing.Point(295, 38);
             this.txtFileName.Name = "txtFileName";
-            this.txtFileName.Size = new System.Drawing.Size(300, 23);
+            this.txtFileName.Size = new System.Drawing.Size(300, 26);
             this.txtFileName.TabIndex = 11;
             // 
             // buttonLoad
