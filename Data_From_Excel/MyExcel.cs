@@ -30,6 +30,10 @@ namespace Data_From_Excel
             lastRow = MySheet.Cells.SpecialCells(Excel.XlCellType.xlCellTypeLastCell).Row;
         }//InitializeExcel()
 
+        /// <summary>
+        /// Okreslenie układu w formularzu od A do D, oraz wiersz pierwszy Excela.
+        /// </summary>
+        /// <returns></returns>
         public static BindingList<Kontakt> ReadMyExcel()
         {
             EmptyList.Clear();
@@ -47,6 +51,10 @@ namespace Data_From_Excel
             return EmptyList;
         }// ReadMyExcel()
 
+        /// <summary>
+        /// Zapis kolejnych wierszy w Excelu.
+        /// </summary>
+        /// <param name="kontakt"></param>
         public static void WriteToExcel(Kontakt kontakt)
         {
             try
@@ -63,6 +71,9 @@ namespace Data_From_Excel
             { }
         }//WriteToExcel
 
+        /// <summary>
+        /// Zamknięcie Excela.
+        /// </summary>
         public static void CloseExcel()
         {
             MyBook.Saved = true;
