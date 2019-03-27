@@ -47,6 +47,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridEmptyList = new System.Windows.Forms.DataGridView();
             this.applicationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonNewFile = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBoxWprowadzanieDanych.SuspendLayout();
@@ -70,6 +71,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.DarkKhaki;
+            this.tabPage1.Controls.Add(this.buttonNewFile);
             this.tabPage1.Controls.Add(this.label13);
             this.tabPage1.Controls.Add(this.txtFileName);
             this.tabPage1.Controls.Add(this.buttonLoad);
@@ -94,19 +96,19 @@
             // txtFileName
             // 
             this.txtFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtFileName.Location = new System.Drawing.Point(295, 38);
+            this.txtFileName.Location = new System.Drawing.Point(295, 33);
             this.txtFileName.Name = "txtFileName";
-            this.txtFileName.Size = new System.Drawing.Size(300, 26);
+            this.txtFileName.Size = new System.Drawing.Size(348, 26);
             this.txtFileName.TabIndex = 11;
             // 
             // buttonLoad
             // 
             this.buttonLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.buttonLoad.Location = new System.Drawing.Point(614, 26);
+            this.buttonLoad.Location = new System.Drawing.Point(649, 28);
             this.buttonLoad.Name = "buttonLoad";
             this.buttonLoad.Size = new System.Drawing.Size(104, 37);
             this.buttonLoad.TabIndex = 10;
-            this.buttonLoad.Text = "Wgraj";
+            this.buttonLoad.Text = "Otwórz";
             this.buttonLoad.UseVisualStyleBackColor = true;
             this.buttonLoad.Click += new System.EventHandler(this.buttonLoad_Click);
             // 
@@ -123,37 +125,37 @@
             this.groupBoxWprowadzanieDanych.Controls.Add(this.label1);
             this.groupBoxWprowadzanieDanych.Controls.Add(this.label2);
             this.groupBoxWprowadzanieDanych.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.groupBoxWprowadzanieDanych.Location = new System.Drawing.Point(6, 80);
+            this.groupBoxWprowadzanieDanych.Location = new System.Drawing.Point(9, 158);
             this.groupBoxWprowadzanieDanych.Name = "groupBoxWprowadzanieDanych";
-            this.groupBoxWprowadzanieDanych.Size = new System.Drawing.Size(755, 313);
+            this.groupBoxWprowadzanieDanych.Size = new System.Drawing.Size(755, 232);
             this.groupBoxWprowadzanieDanych.TabIndex = 13;
             this.groupBoxWprowadzanieDanych.TabStop = false;
             this.groupBoxWprowadzanieDanych.Text = "Wprowadzanie danych";
             // 
             // textBoxTelephone
             // 
-            this.textBoxTelephone.Location = new System.Drawing.Point(230, 208);
+            this.textBoxTelephone.Location = new System.Drawing.Point(221, 183);
             this.textBoxTelephone.Name = "textBoxTelephone";
             this.textBoxTelephone.Size = new System.Drawing.Size(307, 32);
             this.textBoxTelephone.TabIndex = 12;
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Location = new System.Drawing.Point(230, 156);
+            this.textBoxEmail.Location = new System.Drawing.Point(221, 131);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(307, 32);
             this.textBoxEmail.TabIndex = 11;
             // 
             // textBoxSurname
             // 
-            this.textBoxSurname.Location = new System.Drawing.Point(230, 108);
+            this.textBoxSurname.Location = new System.Drawing.Point(221, 83);
             this.textBoxSurname.Name = "textBoxSurname";
             this.textBoxSurname.Size = new System.Drawing.Size(307, 32);
             this.textBoxSurname.TabIndex = 10;
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(230, 56);
+            this.textBoxName.Location = new System.Drawing.Point(221, 31);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(307, 32);
             this.textBoxName.TabIndex = 9;
@@ -161,9 +163,9 @@
             // buttonAdd
             // 
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.buttonAdd.Location = new System.Drawing.Point(624, 248);
+            this.buttonAdd.Location = new System.Drawing.Point(608, 176);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(88, 39);
+            this.buttonAdd.Size = new System.Drawing.Size(136, 39);
             this.buttonAdd.TabIndex = 8;
             this.buttonAdd.Text = "Dodaj rekord";
             this.buttonAdd.UseVisualStyleBackColor = true;
@@ -173,7 +175,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label4.Location = new System.Drawing.Point(23, 211);
+            this.label4.Location = new System.Drawing.Point(14, 186);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(83, 26);
             this.label4.TabIndex = 7;
@@ -183,7 +185,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label3.Location = new System.Drawing.Point(23, 159);
+            this.label3.Location = new System.Drawing.Point(14, 134);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 26);
             this.label3.TabIndex = 6;
@@ -193,7 +195,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label1.Location = new System.Drawing.Point(23, 59);
+            this.label1.Location = new System.Drawing.Point(14, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 26);
             this.label1.TabIndex = 4;
@@ -203,7 +205,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label2.Location = new System.Drawing.Point(23, 111);
+            this.label2.Location = new System.Drawing.Point(14, 86);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 26);
             this.label2.TabIndex = 5;
@@ -231,6 +233,17 @@
             // applicationBindingSource
             // 
             this.applicationBindingSource.DataSource = typeof(Microsoft.Office.Interop.Excel._Application);
+            // 
+            // buttonNewFile
+            // 
+            this.buttonNewFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.buttonNewFile.Location = new System.Drawing.Point(617, 98);
+            this.buttonNewFile.Name = "buttonNewFile";
+            this.buttonNewFile.Size = new System.Drawing.Size(136, 38);
+            this.buttonNewFile.TabIndex = 14;
+            this.buttonNewFile.Text = "Utwórz nowy";
+            this.buttonNewFile.UseVisualStyleBackColor = true;
+            this.buttonNewFile.Click += new System.EventHandler(this.buttonNewFile_Click);
             // 
             // Form1
             // 
@@ -272,6 +285,7 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView dataGridEmptyList;
         private System.Windows.Forms.BindingSource applicationBindingSource;
+        private System.Windows.Forms.Button buttonNewFile;
     }
 }
 

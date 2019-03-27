@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -88,7 +89,7 @@ namespace Data_From_Excel
         {
             OpenFileDialog ExcelDialog = new OpenFileDialog();
             ExcelDialog.Filter = "Excel Files (*.xls) | *.xls";
-            ExcelDialog.InitialDirectory = @"D:\Projects\C_w_polaczeniu_z_Excelem\Excele";
+            ExcelDialog.InitialDirectory = @"D:\Projects\Data_From_Excel\Excele";
             ExcelDialog.Title = "Wybierz swój plik excel z Kontaktami";
 
             if (ExcelDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -103,6 +104,49 @@ namespace Data_From_Excel
                 dataGridEmptyList.DataSource = MyExcel.ReadMyExcel();
             }
         }//existingExcel()
+
+        /// <summary>
+        /// Obsługa tworzenia pustego pliku excel.
+        /// </summary>
+        private void nowyPlik()
+        {
+            Stream myStream;
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            saveFileDialog1.Filter = "Excel Files (*.xls) | *.xls";
+            saveFileDialog1.InitialDirectory = @"D:\Projects\Data_From_Excel\Excele";
+            saveFileDialog1.FilterIndex = 2;
+            saveFileDialog1.RestoreDirectory = true;
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                if ((myStream = saveFileDialog1.OpenFile()) != null)
+                {
+                    //using (var myStream = saveFileDialog1.OpenFile())
+                    using (var writer = new StreamWriter(myStream))
+                    {
+                        MyExcel.DB_PATH = saveFileDialog1.FileName;
+                        txtFileName.Text = saveFileDialog1.FileName;
+                        txtFileName.ReadOnly = true;
+                        txtFileName.Click -= buttonLoad_Click;
+                        tabControl1.Selecting -= TabControl1_Selecting;
+                        MyExcel.InitializeExcel();
+                        dataGridEmptyList.DataSource = MyExcel.ReadMyExcel();
+                    }
+                    myStream.Close();
+                }
+            }
+        }// nowyPlik()
+
+        /// <summary>
+        /// Obsługa kliknięcia utworzenia nowego pliku excel.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonNewFile_Click(object sender, EventArgs e)
+        {
+            nowyPlik();
+        }//buttonNewFile_Click
 
     }//class Form1 : Form
 
