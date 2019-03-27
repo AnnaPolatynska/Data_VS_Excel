@@ -33,6 +33,76 @@ namespace Data_From_Excel
             }
         }// TabControl1_Selecting
 
+        /// <summary>
+        /// Przejście pomiędzy zakładkami.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+            TabControl tc = sender as TabControl;
+            if (tc.SelectedIndex == 1)
+            {
+                dataGridEmptyList.DataSource = (BindingList<Kontakt>)MyExcel.EmptyList;
+                dataGridEmptyList.AutoResizeColumns();
+            }
+        }//tabPage1_Click
+
+        /// <summary>
+        /// Obsługa kliknięcia dodania rekordu.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            Kontakt kontakt = new Kontakt
+            {
+                Imie = textBoxName.Text.ToString(),
+                Nazwisko = textBoxSurname.Text.ToString(),
+                Email = textBoxEmail.Text.ToString(),
+                Telefon = textBoxTelephone.Text.ToString()
+            };
+            MyExcel.WriteToExcel(kontakt);
+            clearAllFields();
+            MessageBox.Show("Dane rekordu zostały pomyślnie dodane do programu Excel.", "OK!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            textBoxName.Focus();
+        }//buttonAdd_Click
+
+        private void clearAllFields()
+        {
+            textBoxName.Text = "";
+            textBoxSurname.Text = "";
+            textBoxEmail.Text = "";
+            textBoxTelephone.Text = "";
+        }//clearAllFields
+
+        private void buttonLoad_Click(object sender, EventArgs e)
+        {
+            existingExcel();
+        }//buttonLoad_Click
+       
+        /// <summary>
+        /// Obsługa istniejącego pliku excel.
+        /// </summary>
+        private void existingExcel()
+        {
+            OpenFileDialog ExcelDialog = new OpenFileDialog();
+            ExcelDialog.Filter = "Excel Files (*.xls) | *.xls";
+            ExcelDialog.InitialDirectory = @"D:\Projects\C_w_polaczeniu_z_Excelem\Excele";
+            ExcelDialog.Title = "Wybierz swój plik excel z Kontaktami";
+
+            if (ExcelDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                MyExcel.DB_PATH = ExcelDialog.FileName;
+                txtFileName.Text = ExcelDialog.FileName;
+                txtFileName.ReadOnly = true;
+                txtFileName.Click -= buttonLoad_Click;
+                tabControl1.Selecting -= TabControl1_Selecting;
+                buttonLoad.Enabled = true;
+                MyExcel.InitializeExcel();
+                dataGridEmptyList.DataSource = MyExcel.ReadMyExcel();
+            }
+        }//existingExcel()
 
     }//class Form1 : Form
 

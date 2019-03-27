@@ -45,13 +45,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridEmptyList = new System.Windows.Forms.DataGridView();
             this.applicationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBoxWprowadzanieDanych.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridEmptyList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,6 +65,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(775, 425);
             this.tabControl1.TabIndex = 1;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabPage1_Click);
             // 
             // tabPage1
             // 
@@ -107,6 +108,7 @@
             this.buttonLoad.TabIndex = 10;
             this.buttonLoad.Text = "Wgraj";
             this.buttonLoad.UseVisualStyleBackColor = true;
+            this.buttonLoad.Click += new System.EventHandler(this.buttonLoad_Click);
             // 
             // groupBoxWprowadzanieDanych
             // 
@@ -159,12 +161,13 @@
             // buttonAdd
             // 
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.buttonAdd.Location = new System.Drawing.Point(624, 241);
+            this.buttonAdd.Location = new System.Drawing.Point(624, 248);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(88, 39);
             this.buttonAdd.TabIndex = 8;
             this.buttonAdd.Text = "Dodaj rekord";
             this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // label4
             // 
@@ -209,7 +212,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Olive;
-            this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.Controls.Add(this.dataGridEmptyList);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -217,13 +220,13 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Szczegóły rekordu";
             // 
-            // dataGridView1
+            // dataGridEmptyList
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(7, 7);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(754, 383);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridEmptyList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridEmptyList.Location = new System.Drawing.Point(7, 7);
+            this.dataGridEmptyList.Name = "dataGridEmptyList";
+            this.dataGridEmptyList.Size = new System.Drawing.Size(754, 383);
+            this.dataGridEmptyList.TabIndex = 0;
             // 
             // applicationBindingSource
             // 
@@ -243,7 +246,7 @@
             this.groupBoxWprowadzanieDanych.ResumeLayout(false);
             this.groupBoxWprowadzanieDanych.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridEmptyList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -267,7 +270,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridEmptyList;
         private System.Windows.Forms.BindingSource applicationBindingSource;
     }
 }
