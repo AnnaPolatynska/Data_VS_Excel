@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.buttonNewFile = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.txtFileName = new System.Windows.Forms.TextBox();
             this.buttonLoad = new System.Windows.Forms.Button();
@@ -47,7 +48,8 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridEmptyList = new System.Windows.Forms.DataGridView();
             this.applicationBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.buttonNewFile = new System.Windows.Forms.Button();
+            this.richTextData = new System.Windows.Forms.RichTextBox();
+            this.labelDane = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBoxWprowadzanieDanych.SuspendLayout();
@@ -83,11 +85,22 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Dodawanie rekordu";
             // 
+            // buttonNewFile
+            // 
+            this.buttonNewFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.buttonNewFile.Location = new System.Drawing.Point(28, 19);
+            this.buttonNewFile.Name = "buttonNewFile";
+            this.buttonNewFile.Size = new System.Drawing.Size(224, 38);
+            this.buttonNewFile.TabIndex = 14;
+            this.buttonNewFile.Text = "Utwórz nowy plik";
+            this.buttonNewFile.UseVisualStyleBackColor = true;
+            this.buttonNewFile.Click += new System.EventHandler(this.buttonNewFile_Click);
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label13.Location = new System.Drawing.Point(6, 32);
+            this.label13.Location = new System.Drawing.Point(23, 85);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(283, 26);
             this.label13.TabIndex = 12;
@@ -96,17 +109,17 @@
             // txtFileName
             // 
             this.txtFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtFileName.Location = new System.Drawing.Point(295, 33);
+            this.txtFileName.Location = new System.Drawing.Point(28, 114);
             this.txtFileName.Name = "txtFileName";
-            this.txtFileName.Size = new System.Drawing.Size(348, 26);
+            this.txtFileName.Size = new System.Drawing.Size(600, 26);
             this.txtFileName.TabIndex = 11;
             // 
             // buttonLoad
             // 
             this.buttonLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.buttonLoad.Location = new System.Drawing.Point(649, 28);
+            this.buttonLoad.Location = new System.Drawing.Point(634, 109);
             this.buttonLoad.Name = "buttonLoad";
-            this.buttonLoad.Size = new System.Drawing.Size(104, 37);
+            this.buttonLoad.Size = new System.Drawing.Size(119, 37);
             this.buttonLoad.TabIndex = 10;
             this.buttonLoad.Text = "Otwórz";
             this.buttonLoad.UseVisualStyleBackColor = true;
@@ -115,6 +128,8 @@
             // groupBoxWprowadzanieDanych
             // 
             this.groupBoxWprowadzanieDanych.BackColor = System.Drawing.Color.OliveDrab;
+            this.groupBoxWprowadzanieDanych.Controls.Add(this.labelDane);
+            this.groupBoxWprowadzanieDanych.Controls.Add(this.richTextData);
             this.groupBoxWprowadzanieDanych.Controls.Add(this.textBoxTelephone);
             this.groupBoxWprowadzanieDanych.Controls.Add(this.textBoxEmail);
             this.groupBoxWprowadzanieDanych.Controls.Add(this.textBoxSurname);
@@ -134,28 +149,28 @@
             // 
             // textBoxTelephone
             // 
-            this.textBoxTelephone.Location = new System.Drawing.Point(221, 183);
+            this.textBoxTelephone.Location = new System.Drawing.Point(121, 183);
             this.textBoxTelephone.Name = "textBoxTelephone";
             this.textBoxTelephone.Size = new System.Drawing.Size(307, 32);
             this.textBoxTelephone.TabIndex = 12;
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Location = new System.Drawing.Point(221, 131);
+            this.textBoxEmail.Location = new System.Drawing.Point(121, 131);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(307, 32);
             this.textBoxEmail.TabIndex = 11;
             // 
             // textBoxSurname
             // 
-            this.textBoxSurname.Location = new System.Drawing.Point(221, 83);
+            this.textBoxSurname.Location = new System.Drawing.Point(121, 83);
             this.textBoxSurname.Name = "textBoxSurname";
             this.textBoxSurname.Size = new System.Drawing.Size(307, 32);
             this.textBoxSurname.TabIndex = 10;
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(221, 31);
+            this.textBoxName.Location = new System.Drawing.Point(121, 31);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(307, 32);
             this.textBoxName.TabIndex = 9;
@@ -234,16 +249,23 @@
             // 
             this.applicationBindingSource.DataSource = typeof(Microsoft.Office.Interop.Excel._Application);
             // 
-            // buttonNewFile
+            // richTextData
             // 
-            this.buttonNewFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.buttonNewFile.Location = new System.Drawing.Point(617, 98);
-            this.buttonNewFile.Name = "buttonNewFile";
-            this.buttonNewFile.Size = new System.Drawing.Size(136, 38);
-            this.buttonNewFile.TabIndex = 14;
-            this.buttonNewFile.Text = "Utwórz nowy";
-            this.buttonNewFile.UseVisualStyleBackColor = true;
-            this.buttonNewFile.Click += new System.EventHandler(this.buttonNewFile_Click);
+            this.richTextData.Location = new System.Drawing.Point(449, 63);
+            this.richTextData.Name = "richTextData";
+            this.richTextData.Size = new System.Drawing.Size(285, 90);
+            this.richTextData.TabIndex = 13;
+            this.richTextData.Text = "";
+            // 
+            // labelDane
+            // 
+            this.labelDane.AutoSize = true;
+            this.labelDane.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.labelDane.Location = new System.Drawing.Point(444, 34);
+            this.labelDane.Name = "labelDane";
+            this.labelDane.Size = new System.Drawing.Size(175, 26);
+            this.labelDane.TabIndex = 14;
+            this.labelDane.Text = "Dane dodatkowe";
             // 
             // Form1
             // 
@@ -286,6 +308,8 @@
         private System.Windows.Forms.DataGridView dataGridEmptyList;
         private System.Windows.Forms.BindingSource applicationBindingSource;
         private System.Windows.Forms.Button buttonNewFile;
+        private System.Windows.Forms.Label labelDane;
+        private System.Windows.Forms.RichTextBox richTextData;
     }
 }
 

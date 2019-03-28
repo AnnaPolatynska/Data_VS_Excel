@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Data_From_Excel
@@ -18,6 +20,8 @@ namespace Data_From_Excel
 
         private static int lastRow = 0;
 
+        
+
         /// <summary>
         /// Inicjalizuje Excela.
         /// </summary>
@@ -26,36 +30,46 @@ namespace Data_From_Excel
             MyApp = new Excel.Application();
             MyApp.Visible = false;
             MyBook = MyApp.Workbooks.Open(DB_PATH);
-            MySheet = (Excel.Worksheet)MyBook.Sheets[1];
+            MySheet = (Excel.Worksheet)MyBook.Sheets[1]; // ilość arkuszy Excela.
+            
             lastRow = MySheet.Cells.SpecialCells(Excel.XlCellType.xlCellTypeLastCell).Row;
         }//InitializeExcel()
 
+
         /// <summary>
-        /// Okreslenie układu w formularzu od A do D, oraz wiersz pierwszy Excela.
+        /// Okreslenie układu w formularzu kolumn, oraz wiersz Excela.
         /// </summary>
         /// <returns></returns>
         public static BindingList<Kontakt> ReadMyExcel()
         {
-            EmptyList.Clear();
-            for (int index = 2; index <= lastRow; index++)
-            {
-                System.Array MyValues = (System.Array)MySheet.get_Range("A" + index.ToString(), "D" + index.ToString()).Cells.Value;
-                EmptyList.Add(new Kontakt
+                EmptyList.Clear();
+                for (int index = 2; index <= lastRow; index++) //2 wiersz arkusza
                 {
-                    Imie = MyValues.GetValue(1, 1).ToString(),
-                    Nazwisko = MyValues.GetValue(1, 2).ToString(),
-                    Email = MyValues.GetValue(1, 3).ToString(),
-                    Telefon = MyValues.GetValue(1, 4).ToString()
-                });
-            }
-            return EmptyList;
+                    System.Array MyValues = (System.Array)MySheet.get_Range("A" + index.ToString(), "E" + index.ToString()).Cells.Value;
+                    EmptyList.Add(new Kontakt
+                    {
+                        // wypełnienie danymi poszczególnych kolumn
+                        Imie = MyValues.GetValue(1, 1).ToString(),
+                        Nazwisko = MyValues.GetValue(1, 2).ToString(),
+                        Email = MyValues.GetValue(1, 3).ToString(),
+                        Telefon = MyValues.GetValue(1, 4).ToString(),
+                        Dane = MyValues.GetValue(1, 5).ToString(),
+                    });
+                }
+                return EmptyList;
+            
+            
         }// ReadMyExcel()
 
-        /// <summary>
-        /// Zapis kolejnych wierszy w Excelu.
-        /// </summary>
-        /// <param name="kontakt"></param>
-        public static void WriteToExcel(Kontakt kontakt)
+
+
+
+
+            /// <summary>
+            /// Zapis kolejnych wierszy w Excelu.
+            /// </summary>
+            /// <param name="kontakt"></param>
+            public static void WriteToExcel(Kontakt kontakt)
         {
             try
             {
@@ -64,6 +78,7 @@ namespace Data_From_Excel
                 MySheet.Cells[lastRow, 2] = kontakt.Nazwisko;
                 MySheet.Cells[lastRow, 3] = kontakt.Email;
                 MySheet.Cells[lastRow, 4] = kontakt.Telefon;
+                MySheet.Cells[lastRow, 5] = kontakt.Dane;
                 EmptyList.Add(kontakt);
                 MyBook.Save();
             }

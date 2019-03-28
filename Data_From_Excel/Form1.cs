@@ -61,8 +61,10 @@ namespace Data_From_Excel
                 Imie = textBoxName.Text.ToString(),
                 Nazwisko = textBoxSurname.Text.ToString(),
                 Email = textBoxEmail.Text.ToString(),
-                Telefon = textBoxTelephone.Text.ToString()
+                Telefon = textBoxTelephone.Text.ToString(),
+                Dane = richTextData.Text.ToString()
             };
+
             MyExcel.WriteToExcel(kontakt);
             clearAllFields();
             MessageBox.Show("Dane rekordu zostały pomyślnie dodane do programu Excel.", "OK!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -75,6 +77,7 @@ namespace Data_From_Excel
             textBoxSurname.Text = "";
             textBoxEmail.Text = "";
             textBoxTelephone.Text = "";
+            richTextData.Text = "";
         }//clearAllFields
 
         private void buttonLoad_Click(object sender, EventArgs e)
@@ -99,7 +102,7 @@ namespace Data_From_Excel
                 txtFileName.ReadOnly = true;
                 txtFileName.Click -= buttonLoad_Click;
                 tabControl1.Selecting -= TabControl1_Selecting;
-                buttonLoad.Enabled = true;
+                //buttonLoad.Enabled = true;
                 MyExcel.InitializeExcel();
                 dataGridEmptyList.DataSource = MyExcel.ReadMyExcel();
             }
@@ -126,9 +129,9 @@ namespace Data_From_Excel
                     using (var writer = new StreamWriter(myStream))
                     {
                         MyExcel.DB_PATH = saveFileDialog1.FileName;
-                        txtFileName.Text = saveFileDialog1.FileName;
-                        txtFileName.ReadOnly = true;
-                        txtFileName.Click -= buttonLoad_Click;
+                        //txtFileName.Text = saveFileDialog1.FileName;
+                        //txtFileName.ReadOnly = true;
+                        //txtFileName.Click -= buttonLoad_Click;
                         tabControl1.Selecting -= TabControl1_Selecting;
                         MyExcel.InitializeExcel();
                         dataGridEmptyList.DataSource = MyExcel.ReadMyExcel();
