@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -34,8 +35,7 @@ namespace Data_From_Excel
             
             lastRow = MySheet.Cells.SpecialCells(Excel.XlCellType.xlCellTypeLastCell).Row;
         }//InitializeExcel()
-
-
+        
         /// <summary>
         /// Okreslenie układu w formularzu kolumn, oraz wiersz Excela.
         /// </summary>
@@ -49,21 +49,16 @@ namespace Data_From_Excel
                     EmptyList.Add(new Kontakt
                     {
                         // wypełnienie danymi poszczególnych kolumn
-                        Imie = MyValues.GetValue(1, 1).ToString(),
-                        Nazwisko = MyValues.GetValue(1, 2).ToString(),
-                        Email = MyValues.GetValue(1, 3).ToString(),
-                        Telefon = MyValues.GetValue(1, 4).ToString(),
-                        Dane = MyValues.GetValue(1, 5).ToString(),
+                        Imie = MyValues.GetValue(2, 1).ToString(),
+                        Nazwisko = MyValues.GetValue(2, 2).ToString(),
+                        Email = MyValues.GetValue(2, 3).ToString(),
+                        Telefon = MyValues.GetValue(2, 4).ToString(),
+                        Dane = MyValues.GetValue(2, 5).ToString(),
                     });
                 }
                 return EmptyList;
-            
-            
+                        
         }// ReadMyExcel()
-
-
-
-
 
             /// <summary>
             /// Zapis kolejnych wierszy w Excelu.
@@ -81,6 +76,7 @@ namespace Data_From_Excel
                 MySheet.Cells[lastRow, 5] = kontakt.Dane;
                 EmptyList.Add(kontakt);
                 MyBook.Save();
+                               
             }
             catch (Exception ex)
             { }
@@ -91,9 +87,19 @@ namespace Data_From_Excel
         /// </summary>
         public static void CloseExcel()
         {
-            MyBook.Saved = true;
-            MyApp.Quit();
+            if (MyBook.Saved == true)
+            {
+                MyApp.Quit();
+            }
+            else
+            {
+                MessageBox.Show("Czy zapisać plik Excel.", "Zapis", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MyBook.SaveAs();
+
+            }
+           
         }// CloseExcel()
+
 
 
     }//class MyExcel

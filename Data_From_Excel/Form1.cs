@@ -69,6 +69,8 @@ namespace Data_From_Excel
             clearAllFields();
             MessageBox.Show("Dane rekordu zostały pomyślnie dodane do programu Excel.", "OK!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             textBoxName.Focus();
+            MyExcel.CloseExcel();
+            // MyBook.Close();
         }//buttonAdd_Click
 
         private void clearAllFields()
@@ -91,7 +93,7 @@ namespace Data_From_Excel
         private void existingExcel()
         {
             OpenFileDialog ExcelDialog = new OpenFileDialog();
-            ExcelDialog.Filter = "Excel Files (*.xls) | *.xls";
+            ExcelDialog.Filter = "Excel Files (*.xlsx) | *.xlsx";
             ExcelDialog.InitialDirectory = @"D:\Projects\Data_From_Excel\Excele";
             ExcelDialog.Title = "Wybierz swój plik excel z Kontaktami";
 
@@ -116,7 +118,7 @@ namespace Data_From_Excel
             Stream myStream;
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
-            saveFileDialog1.Filter = "Excel Files (*.xls) | *.xls";
+            saveFileDialog1.Filter = "Excel Files (*.xlsx) | *.xlsx";
             saveFileDialog1.InitialDirectory = @"D:\Projects\Data_From_Excel\Excele";
             saveFileDialog1.FilterIndex = 2;
             saveFileDialog1.RestoreDirectory = true;
@@ -151,6 +153,18 @@ namespace Data_From_Excel
             nowyPlik();
         }//buttonNewFile_Click
 
+        private void buttonExcel_Click(object sender, EventArgs e)
+        {
+            DirectoryInfo outputDir = new DirectoryInfo(@"D:\Projects\Data_From_Excel\Excele");
+
+            if (!outputDir.Exists)
+                outputDir.Create();
+
+            CreateNewExcel<Kontakt>.ExportToExcel(MyExcel.ReadMyExcel(), outputDir, "Kontakty");
+
+            Console.WriteLine("Utworzono plik Excel ");
+            // Console.ReadKey();
+        }
     }//class Form1 : Form
 
 }//namespace Data_From_Excel

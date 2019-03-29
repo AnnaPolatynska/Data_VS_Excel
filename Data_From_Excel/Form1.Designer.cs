@@ -36,6 +36,8 @@
             this.txtFileName = new System.Windows.Forms.TextBox();
             this.buttonLoad = new System.Windows.Forms.Button();
             this.groupBoxWprowadzanieDanych = new System.Windows.Forms.GroupBox();
+            this.labelDane = new System.Windows.Forms.Label();
+            this.richTextData = new System.Windows.Forms.RichTextBox();
             this.textBoxTelephone = new System.Windows.Forms.TextBox();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.textBoxSurname = new System.Windows.Forms.TextBox();
@@ -48,8 +50,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridEmptyList = new System.Windows.Forms.DataGridView();
             this.applicationBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.richTextData = new System.Windows.Forms.RichTextBox();
-            this.labelDane = new System.Windows.Forms.Label();
+            this.buttonExcel = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBoxWprowadzanieDanych.SuspendLayout();
@@ -73,6 +74,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.DarkKhaki;
+            this.tabPage1.Controls.Add(this.buttonExcel);
             this.tabPage1.Controls.Add(this.buttonNewFile);
             this.tabPage1.Controls.Add(this.label13);
             this.tabPage1.Controls.Add(this.txtFileName);
@@ -146,6 +148,24 @@
             this.groupBoxWprowadzanieDanych.TabIndex = 13;
             this.groupBoxWprowadzanieDanych.TabStop = false;
             this.groupBoxWprowadzanieDanych.Text = "Wprowadzanie danych";
+            // 
+            // labelDane
+            // 
+            this.labelDane.AutoSize = true;
+            this.labelDane.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.labelDane.Location = new System.Drawing.Point(444, 34);
+            this.labelDane.Name = "labelDane";
+            this.labelDane.Size = new System.Drawing.Size(175, 26);
+            this.labelDane.TabIndex = 14;
+            this.labelDane.Text = "Dane dodatkowe";
+            // 
+            // richTextData
+            // 
+            this.richTextData.Location = new System.Drawing.Point(449, 63);
+            this.richTextData.Name = "richTextData";
+            this.richTextData.Size = new System.Drawing.Size(285, 90);
+            this.richTextData.TabIndex = 13;
+            this.richTextData.Text = "";
             // 
             // textBoxTelephone
             // 
@@ -249,23 +269,16 @@
             // 
             this.applicationBindingSource.DataSource = typeof(Microsoft.Office.Interop.Excel._Application);
             // 
-            // richTextData
+            // buttonExcel
             // 
-            this.richTextData.Location = new System.Drawing.Point(449, 63);
-            this.richTextData.Name = "richTextData";
-            this.richTextData.Size = new System.Drawing.Size(285, 90);
-            this.richTextData.TabIndex = 13;
-            this.richTextData.Text = "";
-            // 
-            // labelDane
-            // 
-            this.labelDane.AutoSize = true;
-            this.labelDane.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.labelDane.Location = new System.Drawing.Point(444, 34);
-            this.labelDane.Name = "labelDane";
-            this.labelDane.Size = new System.Drawing.Size(175, 26);
-            this.labelDane.TabIndex = 14;
-            this.labelDane.Text = "Dane dodatkowe";
+            this.buttonExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.buttonExcel.Location = new System.Drawing.Point(354, 19);
+            this.buttonExcel.Name = "buttonExcel";
+            this.buttonExcel.Size = new System.Drawing.Size(224, 38);
+            this.buttonExcel.TabIndex = 15;
+            this.buttonExcel.Text = "Utwórz Excela .xlsx";
+            this.buttonExcel.UseVisualStyleBackColor = true;
+            this.buttonExcel.Click += new System.EventHandler(this.buttonExcel_Click);
             // 
             // Form1
             // 
@@ -310,6 +323,7 @@
         private System.Windows.Forms.Button buttonNewFile;
         private System.Windows.Forms.Label labelDane;
         private System.Windows.Forms.RichTextBox richTextData;
+        private System.Windows.Forms.Button buttonExcel;
     }
 }
 
